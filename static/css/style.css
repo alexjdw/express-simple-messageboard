@@ -1,0 +1,47 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+html {
+  font-size: 16px;
+}
+
+div {
+  background-color: ivory;
+  padding: 1rem;
+  margin: 1rem;
+  max-width: 60rem;
+}
+
+div.post {
+  background-color: lightblue;
+}
+
+div.comment {
+  background-color: lightgreen;
+}
+
+body {
+  background-color: whitesmoke;
+}
+
+input, textarea, select {
+  width: 16rem;
+  display: block;
+  padding: .25rem;
+  margin: .25rem;
+  border-radius: 4px;
+}
+
+textarea {
+  height: 4rem;
+}
+
+button {
+  background-color: gold;
+  border: 1px solid goldenrod;
+  border-radius: 4px;
+  padding: .25rem;
+}

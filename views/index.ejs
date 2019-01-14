@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Message Board</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="/js/forms.js"></script>
+</head>
+
+<body>
+  <div id="namediv">
+    <input type="text" id="name">
+    <button id="setname">Set your name</button>
+  </div>
+
+  <div id="msgboard" style="display:none;">
+    <form action="/post" method="post">
+      <h3 id="myname"></h3>
+      <textarea name="postcontent"></textarea>
+      <button type="submit">Submit New Post</button>
+    </form>
+      <% for (var p=0; p<posts.length; p++) { %>
+      <div class="post">
+
+        Post by <%= posts[p].name %> at <%= posts[p].posted_on %>
+        <p>
+          <%= posts[p].content %>
+        </p>
+        <% for (var c=0; c<posts[p].comments.length; c++) { %>
+          <div class="comment">
+            Comment by <%= posts[p].comments[c].name %> at <%= posts[p].comments[c].posted_on %>
+            <p>
+              <%= posts[p].comments[c].content %>
+            </p>
+          </div>
+        <% } %>
+        <div>
+          <form action="/comment" method="post" pid="<%= posts[p]._id %>">
+            <textarea name="comment"></textarea>
+            <button type="submit">Submit New Comment</button>
+          </form>
+        </div>
+      </div>
+    <% } %>
+  </div>
+</body>
+
+</html>
